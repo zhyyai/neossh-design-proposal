@@ -23,6 +23,7 @@ import {
 import MatrixRain from "@/components/matrix-rain";
 import LiveTerminal from "@/components/landing/live-terminal";
 import SettingsControls from "@/components/settings-controls";
+import KolaLogo from "@/components/kola-logo";
 import { usePrefs } from "@/lib/prefs";
 
 /* ---------------- data ---------------- */
@@ -185,10 +186,10 @@ export default function LandingPage() {
       {/* nav */}
       <header className="fixed inset-x-0 top-0 z-50 border-b border-line/60 bg-abyss/70 backdrop-blur-md">
         <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-5">
-          <Link href="/" className="flex items-center gap-2.5">
-            <span className="flex h-7 w-7 items-center justify-center border border-neon/60 bg-neon/10 text-sm font-bold text-neon">
-              ◢
-            </span>
+          <Link href="/" className="group flex items-center gap-2.5">
+            <div className="flex h-7 w-7 items-center justify-center border border-neon/60 bg-neon/10 p-0.5 transition-all group-hover:border-neon group-hover:shadow-[0_0_12px_rgba(0,255,156,0.35)]">
+              <KolaLogo className="h-full w-full" />
+            </div>
             <span className="font-display text-base font-bold tracking-[0.22em] text-zinc-100">
               NEO<span className="text-neon">SSH</span>
             </span>

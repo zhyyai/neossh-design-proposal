@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ShieldCheck, Lock, ArrowRight, AlertTriangle, KeyRound } from "lucide-react";
 import MatrixRain from "@/components/matrix-rain";
 import SettingsControls from "@/components/settings-controls";
+import KolaLogo from "@/components/kola-logo";
 import { usePrefs } from "@/lib/prefs";
 
 function LoginForm() {
@@ -60,9 +61,9 @@ function LoginForm() {
         {/* Terminal Header Bar */}
         <div className="mb-6 flex items-center justify-between border-b border-line pb-4">
           <Link href="/" className="flex items-center gap-2.5 group">
-            <span className="flex h-7 w-7 items-center justify-center border border-neon/60 bg-neon/10 text-sm font-bold text-neon transition-transform group-hover:scale-105">
-              ◢
-            </span>
+            <div className="flex h-8 w-8 items-center justify-center border border-neon/60 bg-neon/10 p-0.5 transition-all group-hover:border-neon group-hover:shadow-[0_0_12px_rgba(0,255,156,0.4)]">
+              <KolaLogo className="h-full w-full" />
+            </div>
             <span className="font-display text-sm font-bold tracking-[0.22em] text-zinc-100">
               NEO<span className="text-neon">SSH</span>
             </span>

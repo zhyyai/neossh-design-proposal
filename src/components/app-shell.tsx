@@ -18,6 +18,7 @@ import { cn } from "@/lib/utils";
 import { usePrefs, type DictKey } from "@/lib/prefs";
 import CommandPalette from "@/components/command-palette";
 import SettingsControls from "@/components/settings-controls";
+import KolaLogo from "@/components/kola-logo";
 
 const NAV: Array<{
   href: string;
@@ -138,11 +139,11 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       <aside className="fixed inset-y-0 left-0 z-40 flex w-[218px] flex-col border-r border-line bg-void/90 backdrop-blur">
         <Link
           href="/"
-          className="flex h-14 items-center gap-2.5 border-b border-line px-5"
+          className="group flex h-14 items-center gap-2.5 border-b border-line px-5"
         >
-          <span className="flex h-7 w-7 items-center justify-center border border-neon/60 bg-neon/10 text-sm font-bold text-neon">
-            ◢
-          </span>
+          <div className="flex h-7 w-7 items-center justify-center border border-neon/60 bg-neon/10 p-0.5 transition-all group-hover:border-neon group-hover:shadow-[0_0_12px_rgba(0,255,156,0.35)]">
+            <KolaLogo className="h-full w-full" />
+          </div>
           <span className="font-display text-sm font-bold tracking-[0.22em] text-zinc-100">
             NEO<span className="text-neon">SSH</span>
           </span>

@@ -39,6 +39,11 @@ export const metadata: Metadata = {
   title: "NEOSSH — Post-Bastion Operations Fabric",
   description:
     "A single-file, GPU-rendered web SSH operations fabric. Real PTY terminals, keystroke audit, risk engine, tunnels and command broadcast — in the browser.",
+  icons: {
+    icon: "/kola.svg",
+    shortcut: "/kola.svg",
+    apple: "/kola.svg",
+  },
 };
 
 export const viewport: Viewport = {

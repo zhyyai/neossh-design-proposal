@@ -3,6 +3,9 @@ FROM node:22-bookworm-slim AS builder
 
 WORKDIR /app
 
+# Switch to high-speed Tencent Cloud apt mirror
+RUN sed -i 's/deb.debian.org/mirrors.cloud.tencent.com/g' /etc/apt/sources.list.d/debian.sources
+
 # Install build tools for node-pty native addon compilation
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 \
@@ -15,7 +18,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 COPY package*.json ./
 
-RUN npm install
+RUN npm config set registry https://mirrors.cloud.tencent.com/npm/ && npm install
 
 COPY . .
 
@@ -30,6 +33,8 @@ RUN npm prune --production
 FROM node:22-bookworm-slim AS runner
 
 WORKDIR /app
+
+RUN sed -i 's/deb.debian.org/mirrors.cloud.tencent.com/g' /etc/apt/sources.list.d/debian.sources
 
 # Install bash for the PTY shell, ca-certificates, and curl for healthchecks
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -50,6 +55,7 @@ COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/next.config.ts ./next.config.ts
 COPY --from=builder /app/drizzle.config.json ./drizzle.config.json
 COPY --from=builder /app/src ./src
+COPY --from=builder /app/public ./public
 
 EXPOSE 3000
 
