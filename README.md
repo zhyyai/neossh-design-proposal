@@ -61,8 +61,9 @@ Browser ──SSE──▶ Next.js route handlers ──▶ node-pty (real bash 
   permission wipes, pipe-to-shell) and seals a forensic trail per session.
 - All SQL is parameterized via Drizzle ORM; raw ANSI data is stored as JSON
   text and only ever rendered into xterm (never as HTML).
-- This build exposes no auth layer by design (single-operator sandbox
-  model) — put it behind your SSO/reverse proxy before exposing it.
+- Integrated operator authentication layer (HMAC-SHA256 HttpOnly session
+  cookies + Authorization Bearer header support) configured via `NEOSSH_ACCESS_KEY`
+  to protect all terminal workspaces, filesystem bridges, and administrative APIs.
 
 ## Scripts
 

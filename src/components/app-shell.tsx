@@ -123,6 +123,15 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
 
   const title = TITLE_KEYS[pathname] ? t(TITLE_KEYS[pathname]) : t("shell.fabric");
 
+  const handleLogout = async () => {
+    try {
+      await fetch("/api/auth", { method: "DELETE" });
+    } catch {
+      /* noop */
+    }
+    window.location.href = "/login";
+  };
+
   return (
     <div className="flex min-h-screen bg-abyss">
       {/* sidebar */}
@@ -187,13 +196,13 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
             <span className="flex-1 text-left">{t("shell.grid")}</span>
             <span className="text-[9px] text-zinc-600">⌘K</span>
           </button>
-          <Link
-            href="/"
-            className="mt-2 flex items-center gap-3 px-3 py-2 text-[11px] text-zinc-600 transition-colors hover:text-dangerx"
+          <button
+            onClick={handleLogout}
+            className="mt-2 flex w-full items-center gap-3 px-3 py-2 text-[11px] text-zinc-600 transition-colors hover:text-dangerx"
           >
             <LogOut className="h-3.5 w-3.5" />
             {t("shell.exit")}
-          </Link>
+          </button>
           <div className="mt-2 px-3 text-[9px] tracking-[0.3em] text-zinc-700">
             {t("shell.node")} 7F3A · v2.4.1
           </div>

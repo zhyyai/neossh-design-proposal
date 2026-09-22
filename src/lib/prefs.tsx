@@ -79,6 +79,16 @@ const DICT = {
   "ctl.mode": ["Switch to light mode", "切换到暗色模式"],
   "ctl.font": ["Terminal & UI font", "终端与界面字体"],
 
+  // auth
+  "auth.title": ["NEOSSH // SECURE GATEWAY", "NEOSSH // 安全网关"],
+  "auth.subtitle": ["OPERATOR IDENTITY VERIFICATION", "操作员身份核验"],
+  "auth.keyLabel": ["ACCESS KEY", "访问凭据"],
+  "auth.keyPlaceholder": ["Enter authorization secret…", "输入授权访问凭据…"],
+  "auth.authenticate": ["AUTHENTICATE", "验证并进入"],
+  "auth.authenticating": ["VERIFYING CIPHER…", "核验证书密钥中…"],
+  "auth.error": ["Access denied: invalid credentials", "访问拒绝：凭据无效"],
+  "auth.back": ["Back to landing", "返回主页"],
+
   // dashboard
   "dash.hostsIn": ["Hosts in inventory", "在册主机"],
   "dash.acrossGroups": ["across 6 groups", "覆盖 6 个分组"],
